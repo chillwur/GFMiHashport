@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Security issue (key handling, webhook auth, contract auth)
+    url: mailto:akinniyishola07@gmail.com
+    about: Please report security-sensitive issues privately by email, not as public issues.

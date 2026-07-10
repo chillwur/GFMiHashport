@@ -1,0 +1,60 @@
+name: Bug report
+description: Something in Hashport is broken
+labels: ["bug"]
+body:
+  - type: dropdown
+    id: workspace
+    attributes:
+      label: Workspace
+      description: Which part of the monorepo is affected?
+      options:
+        - apps/backend (WhatsApp webhook / Stellar service)
+        - apps/frontend (web app)
+        - contracts/hashport-account (Soroban contract)
+        - tooling / CI / repo root
+        - not sure
+    validations:
+      required: true
+  - type: dropdown
+    id: network
+    attributes:
+      label: Stellar network
+      options:
+        - testnet
+        - mainnet
+        - n/a
+    validations:
+      required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: |
+        What did you do, what did you expect, what actually happened?
+        For chat flows, include the exact message you sent the bot (redact phone numbers).
+        For on-chain issues, include the transaction hash or contract ID if you have one.
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. `pnpm dev:backend`
+        2. POST this payload to /webhooks/whatsapp …
+        3. …
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant logs
+      description: Backend logs, browser console, or `cargo test` output. Redact tokens and secret keys.
+      render: shell
+  - type: checkboxes
+    id: secrets
+    attributes:
+      label: Secrets check
+      options:
+        - label: I confirm this report contains no access tokens, secret keys (S...), or real phone numbers.
+          required: true

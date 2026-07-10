@@ -1,0 +1,38 @@
+name: Feature request
+description: Propose a new capability for Hashport
+labels: ["enhancement"]
+body:
+  - type: dropdown
+    id: workspace
+    attributes:
+      label: Workspace
+      options:
+        - apps/backend (chat commands / Stellar)
+        - apps/frontend (web app)
+        - contracts/hashport-account (Soroban contract)
+        - cross-cutting
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What can't a Hashport user do today?
+      placeholder: "As a user I want to swap into USDC directly from chat so that…"
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: |
+        If it's a new chat command, sketch the conversation:
+
+        > user: swap 10 XLM to USDC
+        > bot: You'll receive ~38.2 USDC. Reply YES to confirm.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
