@@ -29,6 +29,9 @@ jobs:
       - name: Lint
         run: pnpm lint
 
+      - name: Check env.example sync
+        run: pnpm check:env
+
       - name: Typecheck
         run: pnpm typecheck
 

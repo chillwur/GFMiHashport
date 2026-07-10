@@ -20,6 +20,7 @@
     "lint": "pnpm --filter \"./apps/*\" lint",
     "test": "pnpm --filter \"./apps/*\" test",
     "typecheck": "pnpm --filter \"./apps/*\" typecheck",
+    "check:env": "node scripts/check-env-examples.mjs",
     "contracts:build": "make -C contracts/hashport-account build",
     "contracts:test": "make -C contracts/hashport-account test",
     "contracts:fmt": "make -C contracts/hashport-account fmt",
