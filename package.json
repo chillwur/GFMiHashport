@@ -9,6 +9,8 @@
     "node": ">=22"
   },
   "scripts": {
+    "dev:infra": "docker compose up -d",
+    "dev:infra:down": "docker compose down",
     "dev": "pnpm --parallel --filter \"./apps/*\" dev",
     "dev:frontend": "pnpm --filter @hashport/frontend dev",
     "dev:backend": "pnpm --filter @hashport/backend dev",
