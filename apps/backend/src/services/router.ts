@@ -6,10 +6,7 @@ import * as stellar from "./stellar.js";
  * `sender` is the WhatsApp phone number the message came from; it keys the
  * user's wallet.
  */
-export async function handleCommand(
-  command: Command,
-  sender: string,
-): Promise<string> {
+export async function handleCommand(command: Command, sender: string): Promise<string> {
   switch (command.kind) {
     case "help":
       return HELP_TEXT;
@@ -24,9 +21,7 @@ export async function handleCommand(
       if (balances.length === 0) {
         return "Your wallet is empty. Fund it with `address` to get started.";
       }
-      return balances
-        .map((b) => `• ${b.balance} ${b.asset}`)
-        .join("\n");
+      return balances.map((b) => `• ${b.balance} ${b.asset}`).join("\n");
     }
 
     case "send":

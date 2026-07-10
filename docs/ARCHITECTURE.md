@@ -46,7 +46,7 @@ Next.js app serving the landing page with the `wa.me` deep link into the bot, an
 
 ## Environments
 
-| | Network | Horizon | RPC |
-| --- | --- | --- | --- |
-| dev / CI | testnet | horizon-testnet.stellar.org | soroban-testnet.stellar.org |
-| production | mainnet | horizon.stellar.org | (provider of choice) |
+|            | Network | Horizon                     | RPC                         |
+| ---------- | ------- | --------------------------- | --------------------------- |
+| dev / CI   | testnet | horizon-testnet.stellar.org | soroban-testnet.stellar.org |
+| production | mainnet | horizon.stellar.org         | (provider of choice)        |

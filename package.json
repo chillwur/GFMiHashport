@@ -18,8 +18,14 @@
     "lint": "pnpm --filter \"./apps/*\" lint",
     "test": "pnpm --filter \"./apps/*\" test",
     "typecheck": "pnpm --filter \"./apps/*\" typecheck",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "contracts:build": "make -C contracts/hashport-account build",
     "contracts:test": "make -C contracts/hashport-account test",
     "contracts:fmt": "make -C contracts/hashport-account fmt"
+  },
+  "devDependencies": {
+    "eslint-config-prettier": "^10.1.8",
+    "prettier": "^3.9.5"
   }
 }

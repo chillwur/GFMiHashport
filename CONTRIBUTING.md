@@ -45,7 +45,7 @@ pnpm contracts:build
 - **Branches**: `feat/<topic>`, `fix/<topic>`, `docs/<topic>`.
 - **Commits**: [Conventional Commits](https://www.conventionalcommits.org/) (`feat:`, `fix:`, `chore:`, `docs:`, `test:`).
 - **New chat commands** need: parser case in `lib/commands.ts`, handler in `services/router.ts`, tests in `test/commands.test.ts`, and a line in `HELP_TEXT`.
-- **Never commit secrets.** `.env` files are gitignored; only `.env.example` files belong in the repo. If a change adds an env var, document it in the workspace's `.env.example` *and* the root `.env.example` map.
+- **Never commit secrets.** `.env` files are gitignored; only `.env.example` files belong in the repo. If a change adds an env var, document it in the workspace's `.env.example` _and_ the root `.env.example` map.
 - Default to **testnet** in all examples, tests, and defaults.
 
 ## Reporting issues

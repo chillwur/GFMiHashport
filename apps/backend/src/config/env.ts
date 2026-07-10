@@ -44,9 +44,7 @@ export const env = {
     network: network as StellarNetwork,
     horizonUrl: optional(
       "STELLAR_HORIZON_URL",
-      network === "mainnet"
-        ? "https://horizon.stellar.org"
-        : "https://horizon-testnet.stellar.org",
+      network === "mainnet" ? "https://horizon.stellar.org" : "https://horizon-testnet.stellar.org",
     ),
     rpcUrl: optional(
       "STELLAR_RPC_URL",

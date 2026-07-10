@@ -24,12 +24,12 @@ The `apps/frontend` web app is the public landing page and (soon) the dashboard 
 
 ## Monorepo layout
 
-| Path | What it is | Stack |
-| --- | --- | --- |
-| `apps/frontend` | Landing page & dashboard (`@hashport/frontend`) | Next.js (App Router), TypeScript, Tailwind CSS |
-| `apps/backend` | WhatsApp webhook + Stellar service (`@hashport/backend`) | Node.js, Fastify, `@stellar/stellar-sdk`, Postgres, Redis |
-| `contracts/hashport-account` | Per-user Soroban smart account | Rust, `soroban-sdk` |
-| `docs/` | Architecture and design docs | — |
+| Path                         | What it is                                               | Stack                                                     |
+| ---------------------------- | -------------------------------------------------------- | --------------------------------------------------------- |
+| `apps/frontend`              | Landing page & dashboard (`@hashport/frontend`)          | Next.js (App Router), TypeScript, Tailwind CSS            |
+| `apps/backend`               | WhatsApp webhook + Stellar service (`@hashport/backend`) | Node.js, Fastify, `@stellar/stellar-sdk`, Postgres, Redis |
+| `contracts/hashport-account` | Per-user Soroban smart account                           | Rust, `soroban-sdk`                                       |
+| `docs/`                      | Architecture and design docs                             | —                                                         |
 
 Everything installs and runs from the root via [pnpm workspaces](https://pnpm.io/workspaces).
 
@@ -60,15 +60,15 @@ The backend boots without WhatsApp/Stellar credentials — replies are logged to
 
 ## Common tasks (from the root)
 
-| Command | What it does |
-| --- | --- |
-| `pnpm dev` | Run frontend + backend in watch mode |
-| `pnpm build` | Build all app workspaces |
-| `pnpm lint` | ESLint across app workspaces |
-| `pnpm test` | Vitest (backend) + frontend tests |
-| `pnpm typecheck` | TypeScript checks across app workspaces |
-| `pnpm contracts:build` | Build the Soroban contract to wasm |
-| `pnpm contracts:test` | Run the contract's Rust tests |
+| Command                | What it does                            |
+| ---------------------- | --------------------------------------- |
+| `pnpm dev`             | Run frontend + backend in watch mode    |
+| `pnpm build`           | Build all app workspaces                |
+| `pnpm lint`            | ESLint across app workspaces            |
+| `pnpm test`            | Vitest (backend) + frontend tests       |
+| `pnpm typecheck`       | TypeScript checks across app workspaces |
+| `pnpm contracts:build` | Build the Soroban contract to wasm      |
+| `pnpm contracts:test`  | Run the contract's Rust tests           |
 
 ## Deploying the contract (testnet)
 

@@ -44,12 +44,8 @@ export default function Home() {
             key={item.title}
             className="rounded-2xl border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-950"
           >
-            <h2 className="mb-2 font-semibold text-black dark:text-zinc-50">
-              {item.title}
-            </h2>
-            <p className="text-sm leading-6 text-zinc-600 dark:text-zinc-400">
-              {item.body}
-            </p>
+            <h2 className="mb-2 font-semibold text-black dark:text-zinc-50">{item.title}</h2>
+            <p className="text-sm leading-6 text-zinc-600 dark:text-zinc-400">{item.body}</p>
           </div>
         ))}
       </div>

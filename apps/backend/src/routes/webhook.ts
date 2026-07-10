@@ -40,9 +40,7 @@ export async function webhookRoutes(app: FastifyInstance) {
     const payload = request.body as WhatsAppWebhookPayload;
     const messages =
       payload.entry?.flatMap(
-        (entry) =>
-          entry.changes?.flatMap((change) => change.value.messages ?? []) ??
-          [],
+        (entry) => entry.changes?.flatMap((change) => change.value.messages ?? []) ?? [],
       ) ?? [];
 
     for (const message of messages) {

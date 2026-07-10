@@ -33,7 +33,7 @@ export async function getBalances(phone: string): Promise<AssetBalance[]> {
   try {
     const account = await horizon.loadAccount(publicKey);
     return account.balances.map((b) => ({
-      asset: b.asset_type === "native" ? "XLM" : ("asset_code" in b ? b.asset_code : b.asset_type),
+      asset: b.asset_type === "native" ? "XLM" : "asset_code" in b ? b.asset_code : b.asset_type,
       balance: b.balance,
     }));
   } catch {
