@@ -40,6 +40,16 @@ pnpm contracts:test
 pnpm contracts:build
 ```
 
+## Pre-commit hook
+
+`pnpm install` sets up a Husky `pre-commit` hook that runs `lint-staged` on your staged files —
+ESLint + Prettier on staged `.ts`/`.tsx` files under `apps/*`, and `cargo fmt --check` on staged
+`.rs` files under `contracts/*`. It only touches what you staged, so it stays fast; it's not a
+substitute for the full checks in "Before you open a PR" above.
+
+In exceptional cases you can skip it with `git commit --no-verify`, but fix any resulting lint
+issues before opening the PR — CI still runs the full checks.
+
 ## Conventions
 
 - **Branches**: `feat/<topic>`, `fix/<topic>`, `docs/<topic>`.
