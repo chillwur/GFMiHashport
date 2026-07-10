@@ -9,6 +9,8 @@
     "node": ">=22"
   },
   "scripts": {
+    "dev:infra": "docker compose up -d",
+    "dev:infra:down": "docker compose down",
     "dev": "pnpm --parallel --filter \"./apps/*\" dev",
     "dev:frontend": "pnpm --filter @hashport/frontend dev",
     "dev:backend": "pnpm --filter @hashport/backend dev",
@@ -22,10 +24,24 @@
     "format:check": "prettier --check .",
     "contracts:build": "make -C contracts/hashport-account build",
     "contracts:test": "make -C contracts/hashport-account test",
-    "contracts:fmt": "make -C contracts/hashport-account fmt"
+    "contracts:fmt": "make -C contracts/hashport-account fmt",
+    "prepare": "husky"
   },
   "devDependencies": {
     "eslint-config-prettier": "^10.1.8",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.0.8",
     "prettier": "^3.9.5"
+  },
+  "lint-staged": {
+    "apps/backend/**/*.ts": [
+      "pnpm --filter @hashport/backend exec eslint --fix",
+      "prettier --write"
+    ],
+    "apps/frontend/**/*.{ts,tsx}": [
+      "pnpm --filter @hashport/frontend exec eslint --fix",
+      "prettier --write"
+    ],
+    "contracts/**/*.rs": "cargo fmt --manifest-path contracts/hashport-account/Cargo.toml -- --check"
   }
 }

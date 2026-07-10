@@ -10,8 +10,13 @@ cd GFMiHashport
 pnpm install
 cp apps/frontend/.env.example apps/frontend/.env.local
 cp apps/backend/.env.example  apps/backend/.env
+pnpm dev:infra   # starts local Postgres + Redis via Docker Compose
 pnpm dev
 ```
+
+The `.env.example` credentials already match the `docker-compose.yml` services, so the backend
+can connect to `DATABASE_URL`/`REDIS_URL` with no further configuration. Data persists across
+restarts in named Docker volumes; run `pnpm dev:infra:down` to stop the containers.
 
 For contract work you additionally need Rust (stable) with the `wasm32v1-none` target and, ideally, the [stellar CLI](https://developers.stellar.org/docs/tools/cli):
 
@@ -39,6 +44,16 @@ pnpm build
 pnpm contracts:test
 pnpm contracts:build
 ```
+
+## Pre-commit hook
+
+`pnpm install` sets up a Husky `pre-commit` hook that runs `lint-staged` on your staged files —
+ESLint + Prettier on staged `.ts`/`.tsx` files under `apps/*`, and `cargo fmt --check` on staged
+`.rs` files under `contracts/*`. It only touches what you staged, so it stays fast; it's not a
+substitute for the full checks in "Before you open a PR" above.
+
+In exceptional cases you can skip it with `git commit --no-verify`, but fix any resulting lint
+issues before opening the PR — CI still runs the full checks.
 
 ## Conventions
 
